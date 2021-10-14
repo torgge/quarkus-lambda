@@ -1,0 +1,11 @@
+{
+  "QueueConfigurations": [
+    {
+      "QueueArn": "http://localhost:4566/000000000000/local-queue",
+      "Events": [
+        "s3:ObjectCreated:*",
+        "s3:ObjectRemoved:*"
+      ]
+    }
+  ]
+}
