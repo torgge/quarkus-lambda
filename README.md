@@ -3,6 +3,10 @@
 
 ### Aws cli
 > Install from Homebrew [Installing the AWS SAM CLI on macOS](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html)
+We need to configure our client settingm with username=test and password=test
+```
+aws configure
+```
 
 ### Localstack
 > The docker image to deploy this application
@@ -15,12 +19,15 @@ docker-compose up
 
   - This is generated an ARN code. This code is used to communicate with the application lambda.
   - We need to add this code ARN into our evironment variable: LAMBDA_ROLE_ARN
-> an example: LAMBDA_ROLE_ARN="arn:aws:iam::000000000000:policy/lambda-role"
+
+```
+export LAMBDA_ROLE_ARN="arn:aws:iam::000000000000:policy/lambda-role"
+```
 
 ## Deploy
 ###first we need to deploy this app
 ```
-./gradlew clean package
+mvn clean package
 ```
 #ATENTION!
 >We have to modify the file target/manage.sh generated on deploy, to call the localstack server, add in command a localendpoint
